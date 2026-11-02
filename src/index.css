@@ -1,0 +1,264 @@
+:root {
+  --bg: #f3f5f9;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #9ca3af;
+  --border: #e5e7eb;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------- Приложение ---------- */
+
+.app {
+  max-width: 480px;
+  margin: 48px auto;
+  padding: 24px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.app__title {
+  margin: 0 0 20px;
+  font-size: 26px;
+}
+
+.app__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.app__counter {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.app__clear {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.app__clear:hover {
+  color: var(--danger);
+}
+
+/* ---------- Форма ---------- */
+
+.task-form {
+  display: flex;
+  gap: 8px;
+}
+
+.task-form__input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+}
+
+.task-form__input:focus {
+  border-color: var(--accent);
+}
+
+.task-form__button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.task-form__button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.task-form__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Фильтры ---------- */
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 12px;
+}
+
+.filters__button {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 14px;
+}
+
+.filters__button:hover {
+  border-color: var(--accent);
+}
+
+.filters__button--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Список ---------- */
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.task__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+.task__label input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+/* Выполненная задача: зачёркнута и приглушена */
+.task--completed .task__text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.task__actions {
+  display: flex;
+  gap: 4px;
+}
+
+.task__icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.task__icon-button:hover {
+  background: #eef2ff;
+  color: var(--accent);
+}
+
+.task__icon-button--danger:hover {
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.empty {
+  padding: 24px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ---------- Поиск ---------- */
+
+.search {
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+}
+
+.search:focus {
+  border-color: var(--accent);
+}
+
+/* ---------- Пагинация ---------- */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.pagination__button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+}
+
+.pagination__button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.pagination__button--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.pagination__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---------- Редактирование задачи ---------- */
+
+.task__edit {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  outline: none;
+}
